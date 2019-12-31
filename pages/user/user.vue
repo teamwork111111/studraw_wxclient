@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <view class="content">
         <view class="btn-row">
             <button v-if="!hasLogin" type="primary" class="primary" @tap="bindLogin">登录</button>

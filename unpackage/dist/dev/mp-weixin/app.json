@@ -4,7 +4,9 @@
     "pages/login/login",
     "pages/reg/reg",
     "pages/pwd/pwd",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/index/index",
+    "pages/publish/publish"
   ],
   "subPackages": [],
   "window": {

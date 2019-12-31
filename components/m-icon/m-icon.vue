@@ -1,4 +1,4 @@
-<template>
+﻿<template>
 	<view class="m-icon" :class="['m-icon-'+type]" :style="{color:color,'font-size':fontSize}" @click="onClick()"></view>
 </template>
 

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "发现",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "chat-input": "/components/im-chat/chatinput"
+  }
+}

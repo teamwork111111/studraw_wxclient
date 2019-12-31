@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <view class="content">
         <view class="input-group">
             <view class="input-row">

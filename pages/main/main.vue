@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <view class="content">
         <view v-if="hasLogin" class="hello">
             <view class="title">

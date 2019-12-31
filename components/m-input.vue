@@ -1,4 +1,4 @@
-<template>
+﻿<template>
 	<view class="m-input-view">
 		<input :focus="focus_" :type="inputType" :value="value" @input="onInput" class="m-input-input" :placeholder="placeholder"
 		 :password="type==='password'&&!showPassword" @focus="onFocus" @blur="onBlur" />
