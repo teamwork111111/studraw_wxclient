@@ -1,19 +1,12 @@
 {
-    "name" : "uni-app-moments",
-    "appid" : "__UNI__8B90AB0",
+    "name" : "ColorUi for UniApp",
+    "appid" : "",
     "description" : "",
-    "versionName" : "1.2.1",
-    "versionCode" : 121,
+    "versionName" : "ColorUi for UniApp 2.1.4",
+    "versionCode" : 214,
     "transformPx" : false,
     "app-plus" : {
-		"usingComponents": true, //是否启用`自定义组件模式`，为true表示新的`自定义组件模式` ，否则为`template模板模式`
         /* 5+App特有相关 */
-        "splashscreen" : {
-            "alwaysShowBeforeRender" : true,
-            "waiting" : true,
-            "autoclose" : true,
-            "delay" : 0
-        },
         "modules" : {},
         /* 模块配置 */
         "distribute" : {
@@ -57,7 +50,12 @@
         /* 小程序特有相关 */
         "appid" : "",
         "setting" : {
-            "urlCheck" : true
+            "urlCheck" : false,
+            "es6" : true
         }
+    },
+    "h5" : {
+        "title" : "ColorUi for UniApp",
+        "domain" : "demo.color-ui.com"
     }
 }

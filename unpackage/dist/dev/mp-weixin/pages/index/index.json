@@ -1,7 +1,4 @@
 {
-  "navigationBarTitleText": "发现",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "chat-input": "/components/im-chat/chatinput"
-  }
+  "navigationBarTitleText": "首页",
+  "usingComponents": {}
 }

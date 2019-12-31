@@ -9,18 +9,13 @@
 "use strict";
 /* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ 4);__webpack_require__(/*! @dcloudio/uni-stat */ 5);
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 9));
-
-var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 9));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 
 _vue.default.config.productionTip = false;
 
-_vue.default.prototype.$store = _store.default;
-
 _App.default.mpType = 'app';
 
-var app = new _vue.default(_objectSpread({
-  store: _store.default },
+var app = new _vue.default(_objectSpread({},
 _App.default));
 
 createApp(app).$mount();
@@ -96,10 +91,118 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   onLaunch: function onLaunch() {
-    console.log('App Launch');
+    uni.getSystemInfo({
+      success: function success(e) {
+
+
+
+
+
+
+
+
+
+
+        _vue.default.prototype.StatusBar = e.statusBarHeight;
+        var capsule = wx.getMenuButtonBoundingClientRect();
+        if (capsule) {
+          _vue.default.prototype.Custom = capsule;
+          // Vue.prototype.capsuleSafe = uni.upx2px(750) - capsule.left + uni.upx2px(750) - capsule.right;
+          _vue.default.prototype.CustomBar = capsule.bottom + capsule.top - e.statusBarHeight;
+        } else {
+          _vue.default.prototype.CustomBar = e.statusBarHeight + 50;
+        }
+
+
+
+
+
+
+
+      } });
+
+
+    _vue.default.prototype.ColorList = [{
+      title: '嫣红',
+      name: 'red',
+      color: '#e54d42' },
+
+    {
+      title: '桔橙',
+      name: 'orange',
+      color: '#f37b1d' },
+
+    {
+      title: '明黄',
+      name: 'yellow',
+      color: '#fbbd08' },
+
+    {
+      title: '橄榄',
+      name: 'olive',
+      color: '#8dc63f' },
+
+    {
+      title: '森绿',
+      name: 'green',
+      color: '#39b54a' },
+
+    {
+      title: '天青',
+      name: 'cyan',
+      color: '#1cbbb4' },
+
+    {
+      title: '海蓝',
+      name: 'blue',
+      color: '#0081ff' },
+
+    {
+      title: '姹紫',
+      name: 'purple',
+      color: '#6739b6' },
+
+    {
+      title: '木槿',
+      name: 'mauve',
+      color: '#9c26b0' },
+
+    {
+      title: '桃粉',
+      name: 'pink',
+      color: '#e03997' },
+
+    {
+      title: '棕褐',
+      name: 'brown',
+      color: '#a5673f' },
+
+    {
+      title: '玄灰',
+      name: 'grey',
+      color: '#8799a3' },
+
+    {
+      title: '草灰',
+      name: 'gray',
+      color: '#aaaaaa' },
+
+    {
+      title: '墨黑',
+      name: 'black',
+      color: '#333333' },
+
+    {
+      title: '雅白',
+      name: 'white',
+      color: '#ffffff' }];
+
+
+
   },
   onShow: function onShow() {
     console.log('App Show');
@@ -107,6 +210,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   onHide: function onHide() {
     console.log('App Hide');
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 12 */
