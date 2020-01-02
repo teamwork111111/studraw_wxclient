@@ -6,21 +6,21 @@
 				<view class="top-pic">
 					<image class="header" src="../../static/index/test/header06.jpg" @tap="test"></image>
 				</view>
-				<view class="top-name">凯里学院测试</view>
+				<view class="top-name">{{username}}</view>
 			</view>
 		</view>
 
 		<view class="moments__post" v-for="(post,index) in posts" :key="index" :id="'post-'+index">
 			<view class="post-left">
-				<image class="post_header" :src="post.header_image"></image>
+				<image class="post_header" src="../../static/index/test/header03.jpg"></image>
 			</view>
 
 			<view class="post_right">
-				<text class="post-username">{{post.username}}</text>
-				<view id="paragraph" class="paragraph">{{post.content.text}}</view>
+				<text class="post-username">{{post.user.userinfo.name}}</text>
+				<view id="paragraph" class="paragraph">{{post.content}}</view>
 				<!-- 资料条 -->
 				<view class="toolbar">
-					<view class="timestamp">{{post.timestamp}}</view>
+					<view class="timestamp">{{post.createtime}}</view>
 					<view class="like" @tap="like(index)">
 						<image :src="post.islike===0?'../../static/index/islike.png':'../../static/index/like.png'"></image>
 					</view>
@@ -32,10 +32,10 @@
 				<view class="post-footer">
 					<view class="footer_content">
 						<image class="liked" src="../../static/index/liked.png"></image>
-						<text class="nickname" v-for="(user,index_like) in post.like" :key="index_like">{{user.username}}</text>
+						<text class="nickname">{{like_num}}</text>
 					</view>
-					<view class="footer_content" v-for="(comment,comment_index) in post.comments.comment" :key="comment_index" @tap="reply(index,comment_index)">
-						<text class="comment-nickname">{{comment.username}}: <text class="comment-content">{{comment.content}}</text></text>
+					<view class="footer_content" v-for="(comment,comment_index) in post.feedback" :key="comment_index" @tap="reply(index,comment_index)">
+						<text class="comment-nickname">{{comment.user.userinfo.name}}: <text class="comment-content">{{comment.content}}</text></text>
 					</view>
 				</view>
 			</view>
@@ -53,7 +53,6 @@
 
 <script>
 	import chatInput from '../../components/im-chat/chatinput.vue'; //input框
-	import postData from '../../common/index/index.post.data.js';//朋友圈数据
 	
 	export default {
 		components: {
@@ -61,12 +60,12 @@
 		},
 		data() {
 			return {
-				posts: postData,//模拟数据
-				user_id: 4,
-				username: 'Liuxy',
-
+				posts: [],//模拟数据
+				user_id: 1,
+				username: '张三',
 				index: '',
 				comment_index: '',
+				like_num:0,//点赞人数
 
 				input_placeholder: '评论', //占位内容
 				focus: false, //是否自动聚焦输入框
@@ -82,15 +81,17 @@
 			}
 		},
 		mounted() {
-			
-			uni.getStorage({
-				key: 'posts',
-				success: function (res) {
-					console.log(res.data);
-					this.posts = res.data;
-				}
+			uni.request({
+						url: 'http://120.24.74.223:8081/api/summary/getAllSummary',
+						method:'POST',
+						header : {'content-type':'application/x-www-form-urlencoded'},
+						data: {
+						       userid:this.user_id
+						 },
+						success: (res) => {
+						 	this.posts = res.data;
+						 }
 			});
-
 		},
 		onLoad() {
 			uni.getSystemInfo({ //获取设备信息
@@ -145,7 +146,7 @@
 		},
 		onNavigationBarButtonTap(e) {//监听标题栏点击事件
 			if (e.index == 0) {
-				this.navigateTo('../publish/publish')
+				this.navigateTo('publish/publish')
 			}
 		},
 		computed:{
@@ -153,10 +154,10 @@
 		},
 		methods: {
 			test(){
-				this.navigateTo('../test/test');
+				this.navigateTo('../publish/publish');
 			},
 			navigateTo(url) {
-				uni.navigateTo({
+				uni.switchTab({
 					url: url
 				});
 			},

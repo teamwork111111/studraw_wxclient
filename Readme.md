@@ -1,15 +1,9 @@
-<p style="text-align: center;"><img src="https://image.weilanwl.com/uni/UniAppReadme.jpg" alt="ColorUI简介"></img></p>
+```
+画像系统后台接口文档地址
+http://47.95.4.199:8081/api/swagger-ui.html
+http://120.24.74.223:8081/swagger-ui.html
 
-## 前言
-ColorUI是一个css库！！！在你引入样式后可以根据class来调用组件，一些含有交互的操作我也有简单写，可以为你开发提供一些思路。插件市场版本如果和更新日志不一样，请移步Github下载。有组件需求或者Bug提交也可以移步到issues。
-
-## 交流
-微信群：加入微信群请先添加开发者微信，备注UniApp插件市场。QQ群：240787041 或扫描二维码。
-<p style="text-align: center;"><img src="https://image.weilanwl.com/colorui/githubQrcode.jpg" alt="" style="max-width:100%;" width="748"></p>				  
-
-## 素材
-ColorUI在语雀有个群友共同在维护的知识库，里面有一些群友改的模板和UI素材供开发使用哦！
-[语雀-ColorUI群资源](https://www.yuque.com/colorui)
+```
  
 ## 开始使用
 下载源码解压，复制根目录的 `/colorui` 文件夹到你的根目录

@@ -31,23 +31,24 @@
 				uni.showLoading({title:'发布中'});
 				
 				uni.request({
-								url: 'http://47.95.4.199:8081/api/summary/addSummary',
+								url: 'http://120.24.74.223:8081/api/summary/addSummary',
 								method:'POST',
 								header : {'content-type':'application/x-www-form-urlencoded'},
 								data: {
-								       content:this.input_content
+								       content:this.input_content,
+									   userid:1
 								 },
 								 success: (res) => {
-								    console.log("publicsh页面："+res.data);
-									uni.hideLoading();
-									uni.navigateTo({
-										url: './summary/summary',
-										success: res => {},
-										fail: () => {},
-										complete: () => {}
-									});
+								    uni.showLoading({title:'发布成功!!!'});
 								 }
 							});
+				uni.hideLoading();
+				uni.navigateTo({
+					url: './summary/summary',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
 			},
 				touchStart: function(e) {
 							this.startX = e.mp.changedTouches[0].pageX;
